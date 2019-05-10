@@ -1,6 +1,7 @@
 import React from 'react';
 import Tower from './Tower';
 import * as hanoi from './hanoi';
+import _ from 'lodash';
 
 class HanoiTowers extends React.Component {
   static defaultProps = {
@@ -26,6 +27,10 @@ class HanoiTowers extends React.Component {
       this.setState({selected: null});
     } else if (selected !== null) {
       const newTowers = hanoi.move(towers, [selected, i]);
+      if (_.isEqual(newTowers, towers)) {
+        this.setState({selected: null});
+        return null;
+      }
       this.setState({
         towers: newTowers,
         selected: null,
@@ -41,6 +46,10 @@ class HanoiTowers extends React.Component {
     const {selected, moves, solved} = this.state;
     return (
       <React.Fragment>
+        <div className="stats">
+          <h2 className="moves">{solved ? `Solved in ${moves} moves`: `Moves: ${moves}`}</h2>
+          <button onClick={this.reset} disabled={moves === 0}>Start Over</button>
+        </div>
         <div className="HanoiTowers">
           {this.state.towers.map((tower, idx) => 
             <Tower 
@@ -50,11 +59,6 @@ class HanoiTowers extends React.Component {
               selected={selected === idx}
             />)
           }
-        </div>
-        <div className="stats">
-          <h3 className="moves">Moves: {moves}</h3>
-          {solved && <h2 className="solved">Solved</h2>}
-          {moves ? <button onClick={this.reset}>Start Over</button> : null}
         </div>
       </React.Fragment>
     )

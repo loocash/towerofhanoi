@@ -1,5 +1,13 @@
+/**
+ * Contains all the logic of the hanoi towers riddle
+ */
+
 import _ from 'lodash';
 
+/**
+ * Returns true if the riddle is solved correctly
+ * @param {*} state - Array of arrays representing current state of the towers
+ */
 const isSolved = (state) => {
   const nonemty = state.findIndex(x => x.length !== 0);
   if (nonemty < 1) {
@@ -14,6 +22,11 @@ const isSolved = (state) => {
   });
 };
 
+/**
+ * 
+ * @param {*} state - Array of arrays representing the state of a game
+ * @param {*} mv - Array of two elements, [from, to] representing a move to perform
+ */
 const move = (state, mv) => {
   const [prev, next] = mv;
   const len = state.length;

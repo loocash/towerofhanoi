@@ -1,0 +1,2 @@
+.Tower{font-size:2em;display:flex;flex-direction:column-reverse;min-width:15%;text-align:center;border-bottom:5px solid grey;margin:0 .5em;min-height:5em}.Tower:hover{cursor:pointer}.Tower.selected,.Tower:hover{background-color:#f5fffa}.HanoiTowers{display:flex;justify-content:center;margin-top:2em}.plate{height:.5em;background-color:#7fffd4;margin:1px auto;border-radius:10%}.plate:last-child{margin-top:auto}.fa-angle-left,.fa-angle-right{margin:0 .25em}.fa-angle-left:hover,.fa-angle-right:hover{cursor:pointer}
+/*# sourceMappingURL=main.ff59c320.chunk.css.map */

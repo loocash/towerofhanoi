@@ -4,10 +4,11 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hanoi Towers</h1>
-      <HanoiTowers plates={4}/>
-    </div>
+    <section className="section">
+      <div className="App container">
+        <HanoiTowers />
+      </div>
+    </section>
   );
 }
 
